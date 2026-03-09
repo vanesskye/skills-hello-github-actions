@@ -1,0 +1,16 @@
+name: Welcome Workflow
+
+on: 
+  pull_request
+  scheduler:
+  - cron: '0 9 * * 1' #every Monday at 9:00 AM UTC
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Run a script
+      run: echo "Hello, GitHub Action AZ2006!"
